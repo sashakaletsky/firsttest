@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Changing Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="colorButton" onclick="changeColor()">Click me</button>
+
+  <script>
+    function changeColor() {
+      const button = document.getElementById('colorButton');
+      button.style.backgroundColor = button.style.backgroundColor === 'blue' ? 'red' : 'blue';
+    }
+  </script>
+</body>
+</html>
+
