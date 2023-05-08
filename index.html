@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Changing Button</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-    button {
-      font-size: 24px;
-      padding: 10px 20px;
-      background-color: blue;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+        .time {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <button id="colorButton" onclick="changeColor()">Click me</button>
+    <div class="time" id="time"></div>
+    <button id="clickButton">Click me</button>
+    <p>Total clicks: <span id="counter">0</span></p>
 
-  <script>
-    function changeColor() {
-      const button = document.getElementById('colorButton');
-      button.style.backgroundColor = button.style.backgroundColor === 'blue' ? 'red' : 'blue';
-    }
-  </script>
+    <script>
+        // Display the current time and date
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            const now = new Date();
+            timeElement.innerHTML = now.toLocaleString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Button click counter
+        let clickCount = 0;
+        const counterElement = document.getElementById('counter');
+        const clickButton = document.getElementById('clickButton');
+        
+        clickButton.addEventListener('click', function() {
+            clickCount++;
+            counterElement.innerHTML = clickCount;
+        });
+    </script>
 </body>
 </html>
-
