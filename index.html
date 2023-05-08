@@ -27,6 +27,14 @@
     <button id="clickButton">Click me</button>
     <p>Total clicks: <span id="counter">0</span></p>
     <p>Your IP address: <span id="ipAddress">...</span></p>
+    <div>
+        <h2>British Monarch Reign Years from Henry VIII onward</h2>
+        <label for="monarchName">Monarch Name:</label>
+        <input type="text" id="monarchName">
+        <button onclick="getReignYears()">Submit</button>
+        <p id="reignYears"></p>
+      </div>
+      
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyc1lmj7MYaVgbG1LXrg7cuMctTcHCgFAsy8M2uyp1Vftc4A/viewform?embedded=true" width="640" height="376" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 
@@ -61,6 +69,42 @@
             console.error('Error fetching IP address:', error);
         }
         }
+
+        // function to get the reign years of each monarch
+
+        function getReignYears() {
+        const monarchs = {
+            "Henry VIII": "1509-1547",
+            "Elizabeth I": "1558-1603",
+            "James I": "1603-1625",
+            "Charles I": "1625-1649",
+            "Charles II": "1660-1685",
+            "James II": "1685-1688",
+            "William III": "1689-1702",
+            "Anne": "1702-1714",
+            "George I": "1714-1727",
+            "George II": "1727-1760",
+            "George III": "1760-1820",
+            "George IV": "1820-1830",
+            "William IV": "1830-1837",
+            "Victoria": "1837-1901",
+            "Edward VII": "1901-1910",
+            "George V": "1910-1936",
+            "Edward VIII": "1936",
+            "George VI": "1936-1952",
+            "Elizabeth II": "1952-present"
+        };
+
+        const monarchName = document.getElementById("monarchName").value;
+        const reignYears = monarchs[monarchName];
+
+        if (reignYears) {
+            document.getElementById("reignYears").innerHTML = `Reign years: ${reignYears}`;
+        } else {
+            document.getElementById("reignYears").innerHTML = "Monarch not found. Please check the spelling and try again.";
+        }
+        }
+
 
         // Fetch and display the visitor's IP address
         fetchIPAddress();
